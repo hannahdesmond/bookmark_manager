@@ -14,12 +14,19 @@ class Bookmark
 
   def self.all
     connection = connect
-
-    result = connection.exec('SELECT * FROM bookmarks')
     
     # this returns an object that is all of the bookmarks
     # each bookmark's attributes can be accessed in a hash
     # by calling the index on the method result[0] or result[2]
+    result = connection.exec('SELECT * FROM bookmarks')
+    # {"id"=>"35", "url"=>"makers.com", "title"=>"Makers"} 
+    #Because we can create a Bookmark we may as well create a bookmark for each of the values that are returned
+
+    # lets make it a bookmark 
+    
+    # I want this to return 
+    # [ Bookmark.new(id: 'id', url: 'url', title: 'title'), ... ]
+
   end
 
   def self.add(title:, url:)
