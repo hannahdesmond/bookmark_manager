@@ -8,11 +8,18 @@ describe Bookmark do
       add_test_bookmarks
 
       bookmarks = Bookmark.all
-
+      # bookmarks is [Bookmark.new, {id=>'id', title=>'title', url='url'} {etc} ]
+      # we want this method to return an array of bookmarks
+      # each with id, url and title. 
+      expect(bookmarks).to_be an_array
       expect(bookmarks.size).to eq 3
-      expect(bookmarks).to have_key 'Google'
-      expect(bookmarks).to have_key 'Makers'
-      expect(bookmarks).to have_key 'Destroy All Software'
+      expect(bookmarks[0]).to be_a Bookmark
+      expect(bookmarks[2]).to be_a Bookmark
+      # check title 
+      expect(bookmarks[0]).
+      expect(bookmarks).to include 'Google'
+      expect(bookmarks).to include 'Makers'
+      expect(bookmarks).to include 'Destroy All Software'
     end
   end
 

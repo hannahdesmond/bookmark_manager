@@ -17,11 +17,9 @@ class Bookmark
 
     result = connection.exec('SELECT * FROM bookmarks')
     
-    bookmarks = {}
-    result.map do |item|
-      bookmarks[item['title']] = item['url']
-    end
-    bookmarks
+    # this returns an object that is all of the bookmarks
+    # each bookmark's attributes can be accessed in a hash
+    # by calling the index on the method result[0] or result[2]
   end
 
   def self.add(title:, url:)
